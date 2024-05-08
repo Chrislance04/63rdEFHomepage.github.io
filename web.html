@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warhammer 30k Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            font-family: 'Nanum Gothic Coding', monospace;
+            scroll-behavior: smooth;
+        }
+
+        .fullpage {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            text-align: center;
+            font-size: 2em; /* Make all the text 2x bigger */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #home h1 {
+            font-size: 4em; /* Keep the size of "63rd Expeditionary Fleet" the same */
+        }
+
+        #home {
+            background: url('images/Screenshot_2.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #about {
+            background: url('images/Stompa.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #about .content p {
+            font-size: 2em; /* Adjust this value to change the font size */
+            font-weight: bold; /* Makes the text bolder */
+        }
+
+        #offer {
+            background: url('images/Sons_of_Joe.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        #offer .section-header h2 {
+            font-size: 2.6em; /* Default size for h2, adjust as needed */
+            font-weight: bold; /* Makes the h2 title bolder */
+        }
+
+        #offer .content h3 {
+            font-size: 2.6em; /* Default size for h3, adjust as needed */
+            font-weight: bold; /* Makes the h3 titles bolder */
+        }
+
+        #offer .content p {
+            font-size: 2em; /* Adjust this value to change the font size */
+            font-weight: bold; /* Makes the text bolder */
+        }
+
+        #info {
+            background: url('images/Screenshot_3.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        #info .content p {
+            font-size: 3em; /* Adjust this value to change the font size */
+            font-weight: bold; /* Makes the text bolder */
+        }
+
+        #info::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50px; /* Adjust this value to change the height of the gradient */
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+        }
+
+        #contact ul {
+            list-style-type: none; /* Removes bullet points */
+        }   
+
+        #contact .content {
+            text-align: center;
+        }
+
+        .section-header {
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+            top: 0;
+        }
+
+        .content {
+            width: 90%; /* Leave some room between the text and the edge of the page */
+            max-height: calc(100% - 40px);
+            overflow-y: auto;
+            padding: 20px 0;
+            line-height: 1.6; /* Increase line height */
+            font-size: 0.6em; /* Adjust the font size of the content */
+        }
+
+        nav {
+            width: 100%;
+            background: #222;
+            color: white;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        nav ul, #schedule ul, #requirements ul, #links ul {
+            list-style-type: none; /* Removes bullet points */
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center-align the items horizontally */
+            align-items: center; /* Center-align the items vertically */
+        }
+
+        nav li, #schedule li, #requirements li, #links li {
+            padding: 10px 20px;
+            text-align: center; /* Ensure text is centered */
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+
+        #schedule ul, #requirements ul, #links ul {
+            gap: 20px; /* Add space between items */
+        }
+
+        nav a:hover {
+            color: #008000;
+        }
+
+        #contact {
+            background-color: black;
+            color: white;
+        }
+
+        .side-by-side {
+            display: flex;
+            flex-direction: column; /* Changes layout to vertical stacking */
+            align-items: center; /* Centers items horizontally */
+            justify-content: space-around; /* Even spacing between items */
+            width: 100%; /* Ensures full width usage for better centering */
+        }
+
+        .side-by-side > div {
+            width: 100%; /* Each child div uses full width of the container */
+            margin: 10px 0; /* Adds vertical spacing between items */
+        }
+
+        .side-by-side ul {
+            justify-content: center; /* Centers the list items within the ul */
+        }
+
+        .side-by-side li {
+            padding: 5px 10px; /* Slight padding for better readability */
+            text-align: center; /* Center-align text within list items */
+        }
+
+        #schedule, #requirements, #links {
+            flex-basis: 30%; /* Each section takes up roughly 30% of the container width */
+        }
+
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#offer">What We Offer</a></li>
+            <li><a href="#info">Information</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="fullpage" id="home">
+        <div class="content">
+            <h1>63rd Expeditionary Fleet</h1>
+        </div>
+    </section>
+    <section class="fullpage" id="about">
+        <div class="section-header">
+            <h2>About Us</h2>
+        </div>
+        <div class="content">
+            <p>We are the 63rd Expeditionary Fleet, a Solar Auxilia and Astartes based Milsim. Our setting is during the late Great Crusade and early Horus Heresy. We are based in the United States and are currently recruiting members to fill out our Auxilia ranks. Our goal is to provide a lore-immersive experience following the story of the 63rd Expeditionary Unit led by Primarch Horus Lupercal.</p>
+        </div>
+    </section>
+    <section class="fullpage" id="offer">
+        <div class="section-header">
+            <h2>What We Offer</h2>
+        </div>
+        <div class="content">
+            <h3>63rd Solar Auxilia Cohort</h3>
+            <p>The 63rd Solar Auxilia Cohort was a military unit of the Imperium of Man during the Great Crusade and the Horus Heresy. Composed of regular humans equipped with advanced technology and trained for warfare, they fought alongside the Sons of Horus in the service of the Warmaster.</p>
+            <h3>Sons of Horus</h3>
+            <p>The Sons of Horus, originally known as the Luna Wolves, were one of the original twenty Space Marine Legions created by the Emperor of Mankind during the Great Crusade. Led by the Warmaster Horus Lupercal, they were renowned for their ferocity and tactical prowess in battle.</p>
+         </div>
+    </section>
+    <section class="fullpage multi" id="info">
+        <div class="section-header">
+            <h2 class="center-text">Information</h2>
+        </div>
+        <div class="content side-by-side">
+            <div id="schedule">
+                <h3 class="center-text">Schedule</h3>
+                <ul>
+                    <li>M - N/A</li>
+                    <li>T - Drills/BCT</li>
+                    <li>W - Drills/BCT</li>
+                    <li>TH - N/A</li>
+                    <li>F - Operation 7:00pm EST</li>
+                    <li>SA - N/A</li>
+                    <li>SU - Operation 7:00pm EST</li>
+                </ul>
+            </div>
+            <div id="requirements">
+                <h3 class="center-text">Requirements</h3>
+                <ul>
+                    <li>Age of 16+ (exceptions allowed)</li>
+                    <li>Must have Teamspeak and a functioning microphone</li>
+                    <li>Attend 1-2 events per week if able</li>
+                    <li>Adhere to uniform regulations</li>
+                </ul>
+            </div>
+            <div id="links">
+                <h3 class="center-text">Links</h3>
+                <ul>
+                    <li><a href="https://discord.gg/UAtxVAdCDJ">Discord</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1V0aHxqZK_0mcd0xUKQ6JNcsAUz5oe9QMsLCA3mlPlSQ/edit?pli=1#gid=697989840">Orbat</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1xrCGMEEPJS-0IXQ8exu2lX5QHT1G7I0109mIJQcNNMw/edit#gid=1601989653">Uniform Guide</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="fullpage" id="contact">
+        <div class="section-header">
+            <h2 class="center-text">Contact</h2>
+        </div>
+        <div class="content center-text">
+            <p>For inquiries, please contact the Warmaster:</p>
+                <ul>
+                    <li>Email: warmaster.horus@lupercal.com</li>
+                </ul>
+        </div>
+    </section>
+</body>
+</html>
